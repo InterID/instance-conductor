@@ -1,0 +1,27 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/conductor
+    username: union
+    password: 87878847
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database: postgresql
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+
+conductor:
+  protocol: http://
+  main-domain: union-eam.ru
+  empty-container-count: 4
+
+python-scripts:
+  dns-creator:
+    name: api_dns.py
+    location: R:\projectsCodeBack\instance-conductor\python\
+  docker-compose-creator:
+    name: server.py
+    location: R:\projectsCodeBack\instance-conductor\python\
+  nginx-helper:
+    name: generation_conf.py
+    location: R:\projectsCodeBack\instance-conductor\python\
