@@ -16,7 +16,10 @@ public class PythonDnsCreator implements DnsCreator {
     @Override
     public void createDns(String prefix) {
         try {
-            ProcessBuilder pb = new ProcessBuilder("python", pythonProperties.getDnsCreatorLocation() + pythonProperties.getDnsCreatorName());
+            ProcessBuilder pb = new ProcessBuilder(
+                    "python",
+                    pythonProperties.getDnsCreatorLocation() + pythonProperties.getDnsCreatorName(),
+                    prefix);
             Process p = pb.start();
 
             BufferedReader in = new BufferedReader(new InputStreamReader(p.getInputStream()));

@@ -16,7 +16,11 @@ public class PythonNginxHelper implements NginxHelper {
     @Override
     public void configureNginx(String prefix, short port) {
         try {
-            ProcessBuilder pb = new ProcessBuilder("python", pythonProperties.getNginxHelperLocation() + pythonProperties.getNginxHelperName());
+            ProcessBuilder pb = new ProcessBuilder(
+                    "python",
+                    pythonProperties.getNginxHelperLocation() + pythonProperties.getNginxHelperName(),
+                    "" + port,
+                    prefix);
             Process p = pb.start();
 
             BufferedReader in = new BufferedReader(new InputStreamReader(p.getInputStream()));

@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 import ru.interid.instanceconductor.business.DockerComposeControlService;
 import ru.interid.instanceconductor.business.model.DockerComposeInformation;
 
+import java.util.Random;
+
 
 @Service
 @RequiredArgsConstructor
@@ -18,8 +20,7 @@ public class BusinessDockerComposeControlService implements DockerComposeControl
 
     @Override
     public DockerComposeInformation createNewInstance(@NonNull String prefix) {
-
-        short port = 9090;
+        short port = (short) (new Random().nextInt(8000) + 1050);
         dnsCreator.createDns(prefix);
         dockerComposeCreator.createDockerCompose(prefix, port);
         nginxHelper.configureNginx(prefix, port);

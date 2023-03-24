@@ -16,7 +16,11 @@ public class PythonDockerComposeCreator implements DockerComposeCreator {
     @Override
     public void createDockerCompose(String prefix, short port) {
         try {
-            ProcessBuilder pb = new ProcessBuilder("python", pythonProperties.getDockerComposeCreatorLocation() + pythonProperties.getDockerComposeCreatorName());
+            ProcessBuilder pb = new ProcessBuilder(
+                    "python",
+                    pythonProperties.getDockerComposeCreatorLocation() + pythonProperties.getDockerComposeCreatorName(),
+                    "" + port,
+                    prefix);
             Process p = pb.start();
 
             BufferedReader in = new BufferedReader(new InputStreamReader(p.getInputStream()));
