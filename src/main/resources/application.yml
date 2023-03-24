@@ -1,6 +1,8 @@
+server:
+  port: 8765
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/conductor
+    url: jdbc:postgresql://185.186.3.91:5432/conductor
     username: union
     password: 87878847
     driver-class-name: org.postgresql.Driver
@@ -9,6 +11,9 @@ spring:
     hibernate:
       ddl-auto: create
     show-sql: true
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
 
 conductor:
   protocol: http://
@@ -25,3 +30,4 @@ python-scripts:
   nginx-helper:
     name: generation_conf.py
     location: R:\projectsCodeBack\instance-conductor\python\
+

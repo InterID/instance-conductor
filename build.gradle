@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'ru.interid'
-version = '0.0.3'
+version = '0.0.4'
 sourceCompatibility = '17'
 
 bootJar {
@@ -31,6 +31,12 @@ dependencies {
     runtimeOnly 'org.postgresql:postgresql'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+
+    // https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-starter-webmvc-ui
+    implementation group: 'org.springdoc', name: 'springdoc-openapi-starter-webmvc-ui', version: '2.0.4'
+
+
 }
 
 tasks.named('test') {
