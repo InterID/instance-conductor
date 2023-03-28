@@ -2,6 +2,7 @@ package ru.interid.instanceconductor.business;
 
 import org.springframework.stereotype.Service;
 
+import java.util.Locale;
 import java.util.Random;
 
 @Service
@@ -18,7 +19,7 @@ public class SimplePrefixGenerator implements PrefixGenerator {
         for (int i = 0; i < 6; i++) {
             sb.append(Integer.toHexString(random.nextInt(16)));
         }
-        return sb.toString().toUpperCase();
+        return sb.toString().toLowerCase();
     }
 
 }
